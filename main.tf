@@ -47,9 +47,17 @@ resource "aws_s3_bucket" "blog" {
   tags = local.tags
 }
 
-resource "aws_s3_bucket_acl" "blog" {
+resource "aws_s3_bucket_ownership_controls" "blog" {
   bucket = aws_s3_bucket.blog.id
-  acl = "private"
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
+resource "aws_s3_bucket_acl" "blog" {
+  depends_on = [aws_s3_bucket_ownership_controls.blog]
+  bucket     = aws_s3_bucket.blog.id
+  acl        = "private"
 }
 
 resource "aws_s3_bucket_website_configuration" "blog" {
@@ -176,9 +184,17 @@ resource "aws_s3_bucket" "wwwblog" {
   tags   = local.tags
 }
 
-resource "aws_s3_bucket_acl" "wwwblog" {
+resource "aws_s3_bucket_ownership_controls" "wwwblog" {
   bucket = aws_s3_bucket.wwwblog.id
-  acl = "private"
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
+resource "aws_s3_bucket_acl" "wwwblog" {
+  depends_on = [aws_s3_bucket_ownership_controls.wwwblog]
+  bucket     = aws_s3_bucket.wwwblog.id
+  acl        = "private"
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "wwwblog" {
