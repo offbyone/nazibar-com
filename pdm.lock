@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:9682e58aaffc0065dc1fe2253b6560ee2f234c3f488314a070f9658ebc4eeff5"
+content_hash = "sha256:9af9f0c74fe7888db8677e9089f54404cb94afd154eb53f1757ca0f48196ca09"
 
 [[package]]
 name = "anyio"
@@ -127,6 +127,17 @@ files = [
 ]
 
 [[package]]
+name = "markdown"
+version = "3.6"
+requires_python = ">=3.8"
+summary = "Python implementation of John Gruber's Markdown."
+groups = ["default"]
+files = [
+    {file = "Markdown-3.6-py3-none-any.whl", hash = "sha256:48f276f4d8cfb8ce6527c8f79e2ee29708508bf4d40aa410fbc3b4ee832c850f"},
+    {file = "Markdown-3.6.tar.gz", hash = "sha256:ed4f41f6daecbeeb96e576ce414c41d2d876daa9a16cb35fa8ed8c2ddfad0224"},
+]
+
+[[package]]
 name = "markdown-it-py"
 version = "3.0.0"
 requires_python = ">=3.8"
@@ -200,6 +211,22 @@ dependencies = [
     "tzdata; sys_platform == \"win32\"",
     "unidecode>=1.3.7",
     "watchfiles>=0.21.0",
+]
+files = [
+    {file = "pelican-4.9.1-py3-none-any.whl", hash = "sha256:713ea66c6a73bde405acd333d5ee746273850a5350a3c0045f2be991d79bd708"},
+    {file = "pelican-4.9.1.tar.gz", hash = "sha256:c08434f0df2a6b649cfe485cbf0d8fdb727ff89ba6ecb1c867f88ceb2f37f179"},
+]
+
+[[package]]
+name = "pelican"
+version = "4.9.1"
+extras = ["markdown"]
+requires_python = "<4.0,>=3.8.1"
+summary = "Static site generator supporting Markdown and reStructuredText"
+groups = ["default"]
+dependencies = [
+    "markdown>=3.1",
+    "pelican==4.9.1",
 ]
 files = [
     {file = "pelican-4.9.1-py3-none-any.whl", hash = "sha256:713ea66c6a73bde405acd333d5ee746273850a5350a3c0045f2be991d79bd708"},
