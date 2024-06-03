@@ -1,0 +1,3 @@
+[tools]
+terraform = "latest"
+python = "3.12"
