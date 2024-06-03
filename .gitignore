@@ -162,3 +162,7 @@ cython_debug/
 #.idea/
 
 plan.just
+
+themes/nazibar/static/webfonts
+output/
+node_modules/

@@ -23,10 +23,15 @@ invalidate:
     --distribution-id E3HG7SIR4ZZAS1 \
     --paths "/*"
 
-prepare_fonts:
+node_modules:
+  npm install
+
+prepare_fonts: node_modules
+  mkdir -p themes/nazibar/static/webfonts
+
   rsync -pthrvz \
     node_modules/@fortawesome/fontawesome-free/webfonts/ \
-    themes/offby1/static/webfonts/
+    themes/nazibar/static/webfonts/
 
 build settings="pelicanconf.py": prepare_fonts
   pelican --fatal=errors -s {{settings}} -o output content
