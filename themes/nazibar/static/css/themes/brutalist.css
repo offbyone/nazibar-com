@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap");
 
 :root {
   --bg-color: #ffffff;
@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Atkinson Hyperlegible Next";
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--bg-color);
