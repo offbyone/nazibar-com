@@ -1,35 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="generator" content="Pelican" />
-  {% block meta %}
-  {% endblock %}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Pelican" />
+    {% block meta %} {% endblock %}
 
-  <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
-  <script src="{{ SITEURL }}/theme/js/sorttable.js"></script>
-  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
-  {% if SITE_THEME %}
-  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/themes/{{ SITE_THEME }}.css" />
-  {% endif %}
-  {% block head %}{% endblock head %}
-</head>
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <script src="{{ SITEURL }}/theme/js/sorttable.js"></script>
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
+    {% if SITE_THEME %}
+    <link
+      rel="stylesheet"
+      href="{{ SITEURL }}/theme/css/themes/{{ SITE_THEME }}.css"
+    />
+    {% endif %} {% block head %}{% endblock head %}
+  </head>
 
-<body id="index" class="home">
-  <header>
-    <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
-  </header>
+  <body id="index" class="home">
+    <header>
+      <h1>{{ SITENAME }}</h1>
+    </header>
 
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
+    <main>{% block content %} {% endblock %}</main>
 
-  <footer>
-    <p>
-      &copy; {{ AUTHOR }} - Powered by <a href="https://getpelican.com/">Pelican</a>
-    </p>
-  </footer>
-</body>
+    <footer>
+      <p>
+        &copy; {{ AUTHOR }} - Powered by
+        <a href="https://getpelican.com/">Pelican</a>
+      </p>
+    </footer>
+  </body>
 </html>
