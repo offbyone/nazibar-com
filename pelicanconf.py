@@ -1,25 +1,26 @@
-AUTHOR = 'Chris R'
-SITENAME = 'Nazi Bar List'
+AUTHOR = "Chris R"
+SITENAME = "Nazi Bar List"
 SITEURL = ""
 
 PATH = "content"
-PLUGIN_PATHS = ['plugins']
-PLUGINS = ['vendors_json', 'webassets']
+PLUGIN_PATHS = ["plugins"]
+PLUGINS = ["vendors_json", "webassets"]
 
 # Webassets configuration
 WEBASSETS = True
 
 # Use absolute paths to avoid issues
 from pathlib import Path
+
 base_path = Path(__file__).resolve().parent
 WEBASSETS_SOURCE_PATHS = [
-    str(base_path / 'node_modules'),
-    str(base_path / 'node_modules' / 'sorttable')
+    str(base_path / "node_modules"),
+    str(base_path / "node_modules" / "sorttable"),
 ]
 
-TIMEZONE = 'America/Los_Angeles'
+TIMEZONE = "America/Los_Angeles"
 
-DEFAULT_LANG = 'en'
+DEFAULT_LANG = "en"
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -36,25 +37,23 @@ LINKS = (
 )
 
 # Social widget
-SOCIAL = (
-    ("GitHub", "https://github.com/offbyone/nazibar-com"),
-)
+SOCIAL = (("GitHub", "https://github.com/offbyone/nazibar-com"),)
 
 DEFAULT_PAGINATION = 10
 
 # Theme
-THEME = 'themes/nazibar'
+THEME = "themes/nazibar"
 # Theme style (options: cyber, red, brutalist)
-SITE_THEME = 'red'
+SITE_THEME = "brutalist"
 
 # Static paths
-STATIC_PATHS = ['images', 'assets']
+STATIC_PATHS = ["images", "assets"]
 
 # Page settings
-PAGE_PATHS = ['pages']
-ARTICLE_PATHS = ['articles']
+PAGE_PATHS = ["pages"]
+ARTICLE_PATHS = ["articles"]
 
 # URL settings
-PAGE_URL = '{slug}.html'
-PAGE_SAVE_AS = '{slug}.html'
-INDEX_SAVE_AS = 'index.html'
+PAGE_URL = "{slug}.html"
+PAGE_SAVE_AS = "{slug}.html"
+INDEX_SAVE_AS = "index.html"
