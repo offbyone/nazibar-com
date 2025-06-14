@@ -44,6 +44,8 @@ DEFAULT_PAGINATION = 10
 
 # Theme
 THEME = 'themes/nazibar'
+# Theme style (options: cyber, red, brutalist)
+SITE_THEME = 'red'
 
 # Static paths
 STATIC_PATHS = ['images', 'assets']

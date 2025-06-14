@@ -1,87 +1,86 @@
-/* Theme styles */
+/* Base styles shared across themes */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  color: #333;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 2rem;
+  position: relative;
 }
 
 a {
-  color: #0366d6;
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+  font-weight: bold;
+  transition: all 0.2s ease;
 }
 
 h1, h2, h3 {
-  color: #222;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 header {
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #eee;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
 }
 
 table {
-  border-collapse: collapse;
   width: 100%;
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 th, td {
-  padding: 0.5rem;
+  padding: 1rem;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
 th {
-  background-color: #f6f8fa;
   cursor: pointer;
-}
-
-tr:hover {
-  background-color: #f6f8fa;
+  position: relative;
 }
 
 details {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background-color: #f6f8fa;
-  border-radius: 4px;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
 }
 
 summary {
   font-weight: bold;
   cursor: pointer;
+  outline: none;
+  user-select: none;
 }
 
 footer {
-  margin-top: 2rem;
+  margin-top: 4rem;
   padding-top: 1rem;
-  border-top: 1px solid #eee;
-  font-size: 0.8rem;
-  color: #777;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
-/* Table sorting indicators */
-.sortable th:after {
-  content: '';
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 5px;
-}
-
-.sortable th.sorttable_sorted:after {
-  content: '▼';
-  font-size: 0.7em;
-}
-
-.sortable th.sorttable_sorted_reverse:after {
-  content: '▲';
-  font-size: 0.7em;
+/* Responsive styles */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  th, td {
+    padding: 0.75rem;
+  }
 }
