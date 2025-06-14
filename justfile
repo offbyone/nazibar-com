@@ -20,7 +20,7 @@ upload:
 
 invalidate:
   uv run aws cloudfront create-invalidation \
-    --distribution-id E3HG7SIR4ZZAS1 \
+    --distribution-id E2IFUK6VS64C19 \
     --paths "/*"
 
 node_modules:
