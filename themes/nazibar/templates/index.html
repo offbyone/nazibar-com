@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+  {% if pages %}
+    {% for page in pages %}
+      {% if page.slug == 'index' %}
+        {{ page.content }}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>
+{% endblock %}

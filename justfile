@@ -29,16 +29,11 @@ node_modules:
 prepare_assets: node_modules
   # Create required directories
   mkdir -p themes/nazibar/static/webfonts
-  mkdir -p themes/nazibar/static/js
-  mkdir -p content/assets/js
   
   # Copy FontAwesome webfonts
   rsync -pthrvz \
     node_modules/@fortawesome/fontawesome-free/webfonts/ \
     themes/nazibar/static/webfonts/
-    
-  # Copy sorttable.js
-  cp node_modules/sorttable/sorttable.js themes/nazibar/static/js/
 
 build settings="pelicanconf.py": prepare_assets
   uv run pelican --fatal=errors -s {{settings}} -o output content

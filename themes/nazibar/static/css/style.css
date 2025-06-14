@@ -1,0 +1,87 @@
+/* Theme styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  color: #222;
+}
+
+header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+th, td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f6f8fa;
+  cursor: pointer;
+}
+
+tr:hover {
+  background-color: #f6f8fa;
+}
+
+details {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f6f8fa;
+  border-radius: 4px;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* Table sorting indicators */
+.sortable th:after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+}
+
+.sortable th.sorttable_sorted:after {
+  content: '▼';
+  font-size: 0.7em;
+}
+
+.sortable th.sorttable_sorted_reverse:after {
+  content: '▲';
+  font-size: 0.7em;
+}
