@@ -1,6 +1,11 @@
+from pathlib import Path
+
 AUTHOR = "Chris R"
 SITENAME = "Nazi Bar List"
 SITEURL = ""
+
+# Use absolute paths to avoid issues
+base_path = Path(__file__).resolve().parent
 
 PATH = "content"
 PLUGIN_PATHS = ["plugins"]
@@ -9,10 +14,6 @@ PLUGINS = ["vendors_json", "webassets"]
 # Webassets configuration
 WEBASSETS = True
 
-# Use absolute paths to avoid issues
-from pathlib import Path
-
-base_path = Path(__file__).resolve().parent
 WEBASSETS_SOURCE_PATHS = [
     str(base_path / "node_modules"),
     str(base_path / "node_modules" / "sorttable"),

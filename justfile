@@ -46,6 +46,17 @@ generate: (build "publishconf.py")
 
 generate-dev: build
 
+pr-preview pr_number:
+  #!/usr/bin/env bash
+  set -euo pipefail
+  
+  # Build the site with PR-specific publishconf
+  PR_NUMBER="{{pr_number}}"
+  export PR_NUMBER
+  uv run pelican --fatal=errors -s publishconf.pr.py -o output content
+  
+  echo "PR preview built successfully for PR #{{pr_number}} at https://offbyone.github.io/nazibar-com/pr-{{pr_number}}"
+
 publish: generate upload invalidate
 
 compile-deps:

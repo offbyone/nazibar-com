@@ -3,8 +3,13 @@
 
 import os
 import sys
+from pathlib import Path
 
-sys.path.append(os.curdir)
+# Ensure that this file's directory is in the Python path
+root_path = Path(__file__).resolve().parent
+if str(root_path) not in sys.path:
+    sys.path.insert(0, str(root_path))
+
 from pelicanconf import *
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://

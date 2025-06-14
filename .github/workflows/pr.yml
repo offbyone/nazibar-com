@@ -1,0 +1,67 @@
+---
+name: Verify PR and Deploy Preview
+
+# Important: Make sure GitHub Pages is enabled in repository settings:
+# Settings > Pages > Source > GitHub Actions
+
+on:
+  push:
+    branches:
+      - ci-testing*
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed for GitHub Pages deployment
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: extractions/setup-just@v1
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - name: install python libs
+        run: uv sync
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: |
+          npm install
+          echo "$GITHUB_WORKSPACE/node_modules/.bin" >> "$GITHUB_PATH"
+
+      - name: Build the page
+        run: |
+          just generate
+
+      - name: Build PR preview
+        if: github.event_name == 'pull_request'
+        run: |
+          # Get PR number
+          PR_NUMBER=${{ github.event.pull_request.number }}
+
+          # Use the new justfile target to build PR preview
+          just pr-preview $PR_NUMBER
+          
+          # Add a link to the PR preview in the job summary
+          echo "## 🚀 PR Preview Available" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 👉 [View Preview Site](https://offbyone.github.io/nazibar-com/pr-$PR_NUMBER)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The preview will be available after the deployment step completes." >> $GITHUB_STEP_SUMMARY
+
+      - name: Deploy PR preview to GitHub Pages
+        if: github.event_name == 'pull_request'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          destination_dir: pr-${{ github.event.pull_request.number }}
+          keep_files: true
