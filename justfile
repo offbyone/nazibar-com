@@ -7,19 +7,19 @@ setup:
   terraform init
 
 pelican:
-    pelican
+  uv run pelican
 
 serve:
-    pelican --listen --autoreload
+  uv run pelican --listen --autoreload
 
 upload:
-  aws s3 sync \
+  uv run aws s3 sync \
     --delete \
     output \
     s3://nazibar.com
 
 invalidate:
-  aws cloudfront create-invalidation \
+  uv run aws cloudfront create-invalidation \
     --distribution-id E3HG7SIR4ZZAS1 \
     --paths "/*"
 
@@ -34,7 +34,7 @@ prepare_fonts: node_modules
     themes/nazibar/static/webfonts/
 
 build settings="pelicanconf.py": prepare_fonts
-  pelican --fatal=errors -s {{settings}} -o output content
+  uv run pelican --fatal=errors -s {{settings}} -o output content
 
 generate: (build "publishconf.py")
 
@@ -43,18 +43,18 @@ generate-dev: build
 publish: generate upload invalidate
 
 compile-deps:
-  pdm lock
+  uv sync
 
 update-deps:
-  pdm update --update-all
+  uv sync --refresh
 
 install-deps:
-  pdm install
+  uv sync
 
 deps: compile-deps install-deps
 
 plan:
-    terraform plan -out plan.just
+  terraform plan -out plan.just
 
 apply:
-    terraform apply plan.just
+  terraform apply plan.just

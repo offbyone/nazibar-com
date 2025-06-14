@@ -166,3 +166,5 @@ plan.just
 themes/nazibar/static/webfonts
 output/
 node_modules/
+
+**/.claude/settings.local.json

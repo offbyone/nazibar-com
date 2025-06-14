@@ -1,0 +1,12 @@
+{
+    "vendors": [
+        {
+            "name": "Twitter/X",
+            "url": "https://x.com",
+            "description": "A social media platform for sharing short messages and media.",
+            "icon": "https://x.com/favicon.ico",
+            "categories": ["Social Media", "Microblogging"],
+            "reason": "Since the acquisition by Elon Musk, Twitter has become a haven for Nazi and far-right content."
+        }
+    ]
+}

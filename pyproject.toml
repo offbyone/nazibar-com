@@ -1,18 +1,20 @@
 [project]
 name = "nazibar-com"
 version = "0.1.0"
-description = "Default template for PDM package"
+description = "A static site listing vendors who are comfortable hosting Nazi and Fascist conetnt"
 authors = [
     {name = "Chris Rose", email = "offline@offby1.net"},
-]
-dependencies = [
-    "pelican[markdown]>=4.9.1",
-    "boto3>=1.34.117",
 ]
 requires-python = ">=3.12.3"
 readme = "README.md"
 license = {text = "MIT"}
+dependencies = [
+    "pelican[markdown]>=4.9.1",
+    "boto3>=1.34.117",
+]
 
-
-[tool.pdm]
-distribution = false
+[project.optional-dependencies]
+dev = [
+    "black",
+    "ruff",
+]
