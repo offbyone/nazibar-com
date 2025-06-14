@@ -59,3 +59,10 @@ Why are you tracking these vendors?
 </summary>
 <p>By highlighting vendors that tolerate Nazi and fascist content, we aim to inform consumers and encourage these platforms to take a stronger stance against hate.</p>
 </details>
+
+<details>
+<summary>
+How can I suggest someone?
+</summary>
+<p>I accept PRs at https://github.com/offbyone/nazibar-com; add to `vendors.json` and I'll see if it makes sense to include.
+</details>
