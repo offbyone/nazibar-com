@@ -17,7 +17,7 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Needed for GitHub Pages deployment
+      contents: write # Needed for GitHub Pages deployment
 
     steps:
       - uses: actions/checkout@v4
@@ -46,9 +46,16 @@ jobs:
         run: |
           # Get PR number
           PR_NUMBER=${{ github.event.pull_request.number }}
-          
+
           # Use the new justfile target to build PR preview
           just pr-preview $PR_NUMBER
+          
+          # Add a link to the PR preview in the job summary
+          echo "## 🚀 PR Preview Available" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 👉 [View Preview Site](https://offbyone.github.io/nazibar-com/pr-$PR_NUMBER)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The preview will be available after the deployment step completes." >> $GITHUB_STEP_SUMMARY
 
       - name: Deploy PR preview to GitHub Pages
         if: github.event_name == 'pull_request'
