@@ -4,6 +4,29 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Pelican" />
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="{% block metatitle %}{{ SITENAME }}{% endblock metatitle %}">
+    <meta name="description" content="{% block metadesc %}A list of platforms and companies that tolerate Nazi and extremist content. "You have to nip it in the bud immediately."{% endblock metadesc %}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ SITEURL }}{% block ogurl %}/{% endblock ogurl %}">
+    <meta property="og:title" content="{% block ogtitle %}{{ SITENAME }}{% endblock ogtitle %}">
+    <meta property="og:description" content="{% block ogdesc %}A list of platforms and companies that tolerate Nazi and extremist content. "You have to nip it in the bud immediately."{% endblock ogdesc %}">
+    <meta property="og:image" content="{{ SITEURL }}/images/social/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Nazi Bar List - 'You have to nip it in the bud immediately'">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ SITEURL }}{% block twurl %}/{% endblock twurl %}">
+    <meta property="twitter:title" content="{% block twtitle %}{{ SITENAME }}{% endblock twtitle %}">
+    <meta property="twitter:description" content="{% block twdesc %}A list of platforms and companies that tolerate Nazi and extremist content. "You have to nip it in the bud immediately."{% endblock twdesc %}">
+    <meta property="twitter:image" content="{{ SITEURL }}/images/social/og-image.png">
+    <meta property="twitter:image:alt" content="Nazi Bar List - 'You have to nip it in the bud immediately'">
+    
     {% block meta %} {% endblock %}
 
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
