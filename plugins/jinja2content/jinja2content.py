@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 from pelican import signals
 from pelican.readers import MarkdownReader
 from pelican.utils import pelican_open
@@ -12,7 +12,7 @@ class JinjaMarkdownReader(MarkdownReader):
 
     def __init__(self, *args, **kwargs):
         super(JinjaMarkdownReader, self).__init__(*args, **kwargs)
-        self.env = Environment(loader=FileSystemLoader(os.path.dirname(__file__)))
+        self.env = Environment(loader=FileSystemLoader(Path(__file__).parent))
 
     def read(self, source_path):
         """

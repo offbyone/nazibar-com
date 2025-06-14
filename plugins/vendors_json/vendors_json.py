@@ -1,8 +1,7 @@
 import json
-import os
 from pathlib import Path
 from pelican import signals
-import re
+from bs4 import BeautifulSoup
 
 def add_vendors_to_context(generator):
     """
@@ -28,34 +27,63 @@ def process_content(content):
 
     page_content = content._content
     
-    # Simple table replacement for our specific case
-    # Find the table section
-    table_pattern = r'<table class="sortable">.*?<tbody>\s*{% for vendor in vendors %}.*?{% endfor %}\s*</tbody>\s*</table>'
-    table_match = re.search(table_pattern, page_content, re.DOTALL)
-    
-    if table_match:
-        table_html = table_match.group(0)
-        table_start = '<table class="sortable">\n<thead>\n<tr><th>Vendor</th><th>Why?</th><th>Date Updated</th></tr>\n</thead>\n<tbody>'
-        table_end = '</tbody>\n</table>'
+    # Check if we have a template tag for vendors table
+    if '{% for vendor in vendors %}' in page_content:
+        # Parse the content as HTML
+        soup = BeautifulSoup(page_content, 'html.parser')
         
-        rows_html = ""
+        # Find the sortable table
+        table = soup.find('table', class_='sortable')
         
-        # Get vendors from content._context (populated by add_vendors_to_context)
-        vendors = content._context.get('vendors', [])
-        
-        for vendor in vendors:
-            name = vendor.get('name', '')
-            url = vendor.get('url', '')
-            reason = vendor.get('reason', '')
-            updated_at = vendor.get('updated_at', '')
+        if table:
+            # Keep the thead section
+            thead = table.find('thead')
             
-            row = f'<tr>\n<td><a href="{url}">{name}</a></td>\n<td>{reason}</td>\n<td>{updated_at}</td>\n</tr>'
-            rows_html += row
-        
-        new_table = table_start + rows_html + table_end
-        page_content = page_content.replace(table_match.group(0), new_table)
-        
-        content._content = page_content
+            # Clear tbody and rebuild it with actual vendor data
+            tbody = table.find('tbody')
+            if tbody:
+                tbody.clear()
+            else:
+                tbody = soup.new_tag('tbody')
+                table.append(tbody)
+            
+            # Get vendors from content._context (populated by add_vendors_to_context)
+            vendors = content._context.get('vendors', [])
+            
+            # Add rows for each vendor
+            for vendor in vendors:
+                name = vendor.get('name', '')
+                url = vendor.get('url', '')
+                reason = vendor.get('reason', '')
+                updated_at = vendor.get('updated_at', '')
+                
+                # Create row and cells
+                tr = soup.new_tag('tr')
+                
+                # Vendor name cell with link
+                td_name = soup.new_tag('td')
+                a = soup.new_tag('a', href=url)
+                a.string = name
+                td_name.append(a)
+                
+                # Reason cell
+                td_reason = soup.new_tag('td')
+                td_reason.string = reason
+                
+                # Date cell
+                td_date = soup.new_tag('td')
+                td_date.string = updated_at
+                
+                # Add cells to row
+                tr.append(td_name)
+                tr.append(td_reason)
+                tr.append(td_date)
+                
+                # Add row to tbody
+                tbody.append(tr)
+            
+            # Replace the content with processed HTML
+            content._content = str(soup)
 
 def register():
     """Register the plugin with Pelican"""

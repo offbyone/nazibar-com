@@ -10,11 +10,11 @@ PLUGINS = ['vendors_json', 'webassets']
 WEBASSETS = True
 
 # Use absolute paths to avoid issues
-import os
-base_path = os.path.dirname(os.path.abspath(__file__))
+from pathlib import Path
+base_path = Path(__file__).resolve().parent
 WEBASSETS_SOURCE_PATHS = [
-    os.path.join(base_path, 'node_modules'),
-    os.path.join(base_path, 'node_modules', 'sorttable')
+    str(base_path / 'node_modules'),
+    str(base_path / 'node_modules' / 'sorttable')
 ]
 
 TIMEZONE = 'America/Los_Angeles'

@@ -9,9 +9,7 @@
 
   <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
-  {% assets filters="rjsmin", output="theme/js/sorttable.min.js", "sorttable.js" %}
-  <script src="{{ SITEURL }}/{{ ASSET_URL }}"></script>
-  {% endassets %}
+  <script src="{{ SITEURL }}/theme/js/sorttable.js"></script>
   <style type="text/css">
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
