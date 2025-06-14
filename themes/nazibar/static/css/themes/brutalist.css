@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap");
 
 :root {
   --bg-color: #ffffff;
@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--bg-color);
@@ -39,7 +39,9 @@ a:hover {
   background-color: rgba(0, 102, 204, 0.1);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
@@ -80,7 +82,8 @@ table {
   border: 4px solid var(--border-color);
 }
 
-th, td {
+th,
+td {
   padding: 1rem;
   text-align: left;
   border: 2px solid var(--border-color);
@@ -130,16 +133,19 @@ footer {
     padding: 1rem;
     border-width: 4px;
   }
-  
+
   header h1 {
     font-size: 1.8rem;
   }
-  
-  th, td {
+
+  th,
+  td {
     padding: 0.75rem;
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     border-width: 2px;
   }
 }
@@ -156,7 +162,7 @@ footer {
 }
 
 /* Hide the default sort indicators */
-#sorttable_sortfwdind, 
+#sorttable_sortfwdind,
 #sorttable_sortrevind {
   display: none;
 }
