@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content="Pelican" />
+  {% block meta %}
+  {% endblock %}
+
+  <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+  <script src="{{ SITEURL }}/theme/js/sorttable.js"></script>
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;700&display=swap');
+    
+    :root {
+      --bg-color: #f4f3f1;
+      --text-color: #111111;
+      --accent-color: #0000ff;
+      --secondary-color: #ebe8e3;
+      --tertiary-color: #ff3300;
+      --border-color: #000000;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Work Sans', sans-serif;
+      line-height: 1.5;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 2px solid transparent;
+      transition: border-bottom 0.2s ease;
+    }
+    
+    a:hover {
+      border-bottom: 2px solid var(--accent-color);
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+    
+    header {
+      margin-bottom: 4rem;
+      border-bottom: 5px solid var(--border-color);
+      padding-bottom: 1rem;
+      position: relative;
+    }
+    
+    header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 10px;
+      width: 50%;
+      height: 5px;
+      background-color: var(--tertiary-color);
+    }
+    
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      position: relative;
+      display: inline-block;
+    }
+    
+    header h1 a {
+      color: var(--text-color);
+    }
+    
+    header h1 a:hover {
+      border-bottom: 2px solid var(--text-color);
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 2rem 0;
+      border: 3px solid var(--border-color);
+      background-color: white;
+    }
+    
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border: 1px solid var(--border-color);
+    }
+    
+    th {
+      background-color: var(--accent-color);
+      color: white;
+      font-family: 'Space Mono', monospace;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    
+    th:hover {
+      background-color: var(--tertiary-color);
+    }
+    
+    tbody tr:nth-child(even) {
+      background-color: var(--secondary-color);
+    }
+    
+    details {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border: 3px solid var(--border-color);
+      position: relative;
+      background-color: white;
+    }
+    
+    details[open] {
+      border-color: var(--accent-color);
+    }
+    
+    summary {
+      font-family: 'Space Mono', monospace;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      outline: none;
+    }
+    
+    summary:hover {
+      color: var(--accent-color);
+    }
+    
+    footer {
+      margin-top: 4rem;
+      padding-top: 1rem;
+      border-top: 3px solid var(--border-color);
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+      font-family: 'Space Mono', monospace;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      th, td {
+        padding: 0.75rem;
+      }
+    }
+    
+    /* Sorting indicators */
+    .sorttable_sorted::after {
+      content: " ↓";
+      font-family: monospace;
+      color: white;
+    }
+    
+    .sorttable_sorted_reverse::after {
+      content: " ↑";
+      font-family: monospace;
+      color: white;
+    }
+    
+    /* Hide the default sort indicators */
+    #sorttable_sortfwdind, 
+    #sorttable_sortrevind {
+      display: none;
+    }
+  </style>
+  {% block head %}{% endblock head %}
+</head>
+
+<body id="index" class="home">
+  <header>
+    <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+  </header>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    <p>
+      &copy; {{ AUTHOR }} - Powered by <a href="https://getpelican.com/">Pelican</a>
+    </p>
+  </footer>
+</body>
+</html>
