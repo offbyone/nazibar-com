@@ -3,6 +3,8 @@ SITENAME = 'Nazi Bar List'
 SITEURL = ""
 
 PATH = "content"
+PLUGIN_PATHS = ['plugins']
+PLUGINS = ['vendors_json']
 
 TIMEZONE = 'America/Los_Angeles'
 
@@ -20,16 +22,26 @@ LINKS = (
     ("Pelican", "https://getpelican.com/"),
     ("Python.org", "https://www.python.org/"),
     ("Jinja2", "https://palletsprojects.com/p/jinja/"),
-    ("You can modify those links in your config file", "#"),
 )
 
 # Social widget
 SOCIAL = (
-    ("You can add links in your config file", "#"),
-    ("Another social link", "#"),
+    ("GitHub", "https://github.com/offbyone/nazibar-com"),
 )
 
 DEFAULT_PAGINATION = 10
 
-# Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
+# Theme
+THEME = 'themes/nazibar'
+
+# Static paths
+STATIC_PATHS = ['images', 'assets']
+
+# Page settings
+PAGE_PATHS = ['pages']
+ARTICLE_PATHS = ['articles']
+
+# URL settings
+PAGE_URL = '{slug}.html'
+PAGE_SAVE_AS = '{slug}.html'
+INDEX_SAVE_AS = 'index.html'
