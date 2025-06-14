@@ -14,8 +14,6 @@ What is a Nazi Bar?
 
 <p>I was at a shitty crustpunk bar once getting an after-work beer. One of those shitholes where the bartenders clearly hate you. So the bartender and I were ignoring one another when someone sits next to me and he immediately says, "no. get out."</p>
 
-<p>I was at a shitty crustpunk bar once getting an after-work beer. One of those shitholes where the bartenders clearly hate you. So the bartender and I were ignoring one another when someone sits next to me and he immediately says, "no. get out."</p>
-
 <p>And the dude next to me says, "hey i'm not doing anything, i'm a paying customer." and the bartender reaches under the counter for a bat or something and says, "out. now." and the dude leaves, kind of yelling. And he was dressed in a punk uniform, I noticed</p>
 
 <p>Anyway, I asked what that was about and the bartender was like, "you didn't see his vest but it was all nazi shit. Iron crosses and stuff. You get to recognize them."
