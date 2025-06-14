@@ -46,6 +46,30 @@ generate: (build "publishconf.py")
 
 generate-dev: build
 
+pr-preview pr_number:
+  #!/usr/bin/env bash
+  set -euo pipefail
+  
+  # Create a PR-specific publishconf
+  cat > pr_publishconf.py << EOF
+# Import all settings from the main publishconf
+import os
+import sys
+sys.path.append(os.curdir)
+from publishconf import *
+
+# Override SITEURL for GitHub Pages PR preview
+SITEURL = "https://offbyone.github.io/nazibar-com/pr-{{pr_number}}"
+EOF
+  
+  # Build the site with PR-specific publishconf
+  uv run pelican --fatal=errors -s pr_publishconf.py -o output content
+  
+  # Clean up the temporary file
+  rm pr_publishconf.py
+  
+  echo "PR preview built successfully for PR #{{pr_number}} at https://offbyone.github.io/nazibar-com/pr-{{pr_number}}"
+
 publish: generate upload invalidate
 
 compile-deps:

@@ -1,5 +1,8 @@
 ---
-name: Verify PR
+name: Verify PR and Deploy Preview
+
+# Important: Make sure GitHub Pages is enabled in repository settings:
+# Settings > Pages > Source > GitHub Actions
 
 on:
   push:
@@ -13,6 +16,8 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed for GitHub Pages deployment
 
     steps:
       - uses: actions/checkout@v4
@@ -35,3 +40,21 @@ jobs:
       - name: Build the page
         run: |
           just generate
+
+      - name: Build PR preview
+        if: github.event_name == 'pull_request'
+        run: |
+          # Get PR number
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          
+          # Use the new justfile target to build PR preview
+          just pr-preview $PR_NUMBER
+
+      - name: Deploy PR preview to GitHub Pages
+        if: github.event_name == 'pull_request'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          destination_dir: pr-${{ github.event.pull_request.number }}
+          keep_files: true
