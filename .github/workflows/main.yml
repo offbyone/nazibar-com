@@ -1,0 +1,72 @@
+---
+name: "Blog"
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  deploy:
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: extractions/setup-just@v1
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-west-2
+          role-to-assume: arn:aws:iam::984616268605:role/nazibar-com-deployer
+          role-session-name: deploy-nazibar-com
+          mask-aws-account-id: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: install python libs
+        run: uv sync
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: |
+          npm install
+          echo "$GITHUB_WORKSPACE/node_modules/.bin" >> "$GITHUB_PATH"
+
+      - name: Assert that our dependencies are reachable
+        run: |
+          uv run python --version
+          uv run pelican --version
+          sass --version
+          just --version
+
+      - name: Build the page
+        run: |
+          just generate
+
+      - name: Publish the content
+        run: |
+          just upload
+
+      - name: Invalidate the existing distribution
+        run: |
+          just invalidate
+
+      - name: Tell me about it
+        if: ${{ always() }}
+        uses: desiderati/github-action-pushover@v1
+        with:
+          job-status: ${{ job.status }}
+          pushover-api-token: ${{ secrets.PUSHOVER_API_TOKEN }}
+          pushover-user-key: ${{ secrets.PUSHOVER_USER_KEY }}
