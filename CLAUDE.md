@@ -20,6 +20,12 @@ This is a static website for nazibar.com built using Pelican, a Python-based sta
   - JavaScript dependencies managed with npm (mainly FontAwesome)
 - **Task Runner**: Uses Just for common tasks
 
+## Code 
+
+Use modern Python libraries
+Don't use regexes when parsers will work
+Prefer modern html and CSS constructs, assuming modern browsers
+
 ## Common Commands
 
 ### Setup
@@ -47,6 +53,8 @@ just serve
 # Prepare fonts for the theme
 just prepare_fonts
 ```
+
+If port 8000 is in use, assume it's this, and do your checking just using cURL
 
 ### Infrastructure Management
 
@@ -91,3 +99,4 @@ just deps
 ## Content Structure
 
 Content is written in Markdown with Jinja2 templates in the `content/` directory. The main index page uses a Jinja2 template to dynamically generate a table of vendors.
+
