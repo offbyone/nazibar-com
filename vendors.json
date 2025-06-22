@@ -8,6 +8,15 @@
             "categories": ["Social Media", "Microblogging"],
             "reason": "Since the acquisition by Elon Musk, Twitter has become a haven for Nazi and far-right content.",
             "updated_at": "2023-10-15"
+        },
+        {
+            "name": "Substack",
+            "url": "https://substack.com",
+            "description": "Social media platform for sharing thoughts and essays.",
+            "icon": "https://substack.com/favicon.ico",
+            "categories": ["Social Media", "Microblogging"],
+            "reason": "Allow Nazi content creators.",
+            "updated_at": "2025-06-21"
         }
     ]
 }
