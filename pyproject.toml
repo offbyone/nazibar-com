@@ -13,6 +13,8 @@ dependencies = [
     "boto3>=1.34.117",
     "pelican-webassets>=2.1.0",
     "beautifulsoup4>=4.13.4",
+    "invoke>=2.2.0",
+    "livereload>=2.7.1",
 ]
 
 [project.optional-dependencies]

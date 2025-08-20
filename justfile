@@ -10,7 +10,8 @@ pelican:
   uv run pelican
 
 serve:
-  uv run pelican --listen --autoreload
+  uv run inv livereload
+  # uv run pelican --listen --autoreload
 
 upload:
   uv run aws s3 sync \

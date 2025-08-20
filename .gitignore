@@ -168,3 +168,4 @@ output/
 node_modules/
 
 **/.claude/settings.local.json
+/cache/
