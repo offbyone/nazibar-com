@@ -8,7 +8,7 @@ template: page
 <summary>
 What is a Nazi Bar?
 </summary>
-<p>A "Nazi bar" is a reference to a classic Twitter thread. This site tracks vendors and platforms that allow Nazi and fascist content to proliferate.</p>
+<p>A "Nazi bar" is a reference to a classic Twitter thread. This site highlights vendors and platforms that, in our opinion, allow Nazi and fascist content to proliferate.</p>
 
 <blockquote class="twitter-tweet" data-width="550" data-dnt="true">
 
@@ -55,9 +55,9 @@ What is a Nazi Bar?
 
 <details>
 <summary>
-Why are you tracking these vendors?
+Why are you highlighting these vendors?
 </summary>
-<p>By highlighting vendors that tolerate Nazi and fascist content, we aim to inform consumers and encourage these platforms to take a stronger stance against hate.</p>
+<p>By highlighting vendors that, in our opinion, tolerate Nazi and fascist content, we aim to inform consumers and encourage these platforms to take a stronger stance against hate. This is our subjective assessment based on publicly available information.</p>
 </details>
 
 <details>
@@ -66,3 +66,9 @@ How can I suggest someone?
 </summary>
 <p>I accept PRs at <a href="https://github.com/offbyone/nazibar-com">github.com/offbyone/nazibar-com</a>; add to `vendors.json` and I'll see if it makes sense to include.
 </details>
+
+## Important Disclaimer
+
+**This website contains opinions only.** The information presented here represents the personal views and assessments of the site maintainer(s). Under no circumstances is this site accusing any vendor, platform, or organization of being nazis or fascists themselves. Rather, this site highlights platforms that, in our opinion, have policies or moderation practices that may allow extremist content to proliferate.
+
+All assessments are subjective and based on publicly available information. We encourage readers to research and form their own opinions about the platforms listed. The inclusion of any vendor on this list does not constitute a definitive statement of fact, but rather an expression of opinion regarding their content moderation practices.
