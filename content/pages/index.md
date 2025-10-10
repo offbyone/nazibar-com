@@ -9,6 +9,7 @@ template: page
 What is a Nazi Bar?
 </summary>
 <p>A "Nazi bar" is a reference to a classic Twitter thread. This site highlights vendors and platforms that, in our opinion, allow Nazi and fascist content to proliferate.</p>
+<p>It is a "A space in which bigots or extremists have come to dominate due to a lack of moderation or by moderators wishing to remain neutral or avoid conflict. [wiktionary](https://en.wiktionary.org/wiki/Nazi_bar)"
 
 <blockquote class="twitter-tweet" data-width="550" data-dnt="true">
 
