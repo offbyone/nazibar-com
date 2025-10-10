@@ -1,22 +1,31 @@
 {
-    "vendors": [
-        {
-            "name": "Twitter/X",
-            "url": "https://x.com",
-            "description": "A social media platform for sharing short messages and media.",
-            "icon": "https://x.com/favicon.ico",
-            "categories": ["Social Media", "Microblogging"],
-            "reason": "Since the acquisition by Elon Musk, Twitter has become a haven for Nazi and far-right content.",
-            "updated_at": "2023-10-15"
-        },
-        {
-            "name": "Substack",
-            "url": "https://substack.com",
-            "description": "Social media platform for sharing thoughts and essays.",
-            "icon": "https://substack.com/favicon.ico",
-            "categories": ["Social Media", "Microblogging"],
-            "reason": "Allow Nazi content creators.",
-            "updated_at": "2025-06-21"
-        }
-    ]
+  "vendors": [
+    {
+      "name": "Twitter/X",
+      "url": "https://x.com",
+      "description": "A social media platform for sharing short messages and media.",
+      "icon": "https://x.com/favicon.ico",
+      "categories": ["Social Media", "Microblogging"],
+      "reason": "Since the acquisition by Elon Musk, Twitter has become a haven for Nazi and far-right content.",
+      "updated_at": "2023-10-15"
+    },
+    {
+      "name": "Substack",
+      "url": "https://substack.com",
+      "description": "Social media platform for sharing thoughts and essays.",
+      "icon": "https://substack.com/favicon.ico",
+      "categories": ["Social Media", "Microblogging"],
+      "reason": "Allow Nazi content creators.",
+      "updated_at": "2025-06-21"
+    },
+    {
+      "name": "Framework",
+      "url": "https://frame.work",
+      "description": "Hardware vendor of laptops designed for repairability, etc.",
+      "icon": "https://frame.work/favicon.ico",
+      "categories": ["Hardware"],
+      "reason": "Ongoing financial support of Nazi and far-right developers, big tent theory. ([cite](https://community.frame.work/t/framework-supporting-far-right-racists/75986), [archive](https://web.archive.org/web/20251010030237/https://community.frame.work/t/framework-supporting-far-right-racists/75986))",
+      "updated_at": "2025-10-10"
+    }
+  ]
 }
