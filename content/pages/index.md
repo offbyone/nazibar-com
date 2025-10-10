@@ -32,6 +32,9 @@ What is a Nazi Bar?
 </p>
 <p>And then he went back to ignoring me. But I haven't forgotten that at all.</p>
 — Michael Tager (@IamRageSparkle) <a href="https://web.archive.org/web/20221221103518/https://twitter.com/IamRageSparkle/status/1280891537451343873?ref_src=twsrc%5Etfw">July 8, 2020</a></blockquote>
+
+<p>It is a "A space in which bigots or extremists have come to dominate due to a lack of moderation or by moderators wishing to remain neutral or avoid conflict." <a href="https://en.wiktionary.org/wiki/Nazi_bar">[wiktionary]</a></p>
+
 </details>
 
 ## The List
